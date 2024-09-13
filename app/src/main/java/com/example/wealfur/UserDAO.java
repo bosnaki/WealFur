@@ -23,6 +23,12 @@ public interface UserDAO {
     @Query("SELECT userId FROM User WHERE email LIKE :email AND " + " password LIKE :password LIMIT 1 ")
     int getAccountWithCredentials(String email, String password);
 
+    @Query("SELECT userId from User where email like :email")
+    int getAccountWithEmail(String email);
+
+    @Query("SELECT password from User where email like :email")
+    String getPasswordFromEmail(String email);
+
 
 
 }

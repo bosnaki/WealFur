@@ -19,6 +19,7 @@ public interface PetDAO {
     @Delete
     void deletePet(Pet pet);
 
-
+    @Query("SELECT petId from pet where `Owner ID` LIKE :ownerId")
+    int getPetIdFRomOwnerId(int ownerId);
 
 }

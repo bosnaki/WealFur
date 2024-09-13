@@ -33,10 +33,14 @@ android {
 
 dependencies {
     val roomVersion = "2.6.1"
+    val fragment_version = "1.8.3"
 
+    //ROOM
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor ("androidx.room:room-compiler:$roomVersion")
 
+    //fragments
+    implementation("androidx.fragment:fragment:$fragment_version")
 
     implementation(libs.appcompat)
     implementation(libs.material)
