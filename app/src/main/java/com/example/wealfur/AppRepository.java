@@ -47,5 +47,12 @@ public class AppRepository {
         return petId;
     }
 
+    public int getAccountWithEmail(String email){
+        return appDatabase.userDAO().getAccountWithEmail(email);
+    }
 
+    public int getUserId(String email, String password){
+        checkUserInfo(email, password);
+        return userId;
+    }
 }
