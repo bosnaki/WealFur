@@ -1,57 +1,44 @@
 package com.example.wealfur;
 
+import android.app.Application;
 import android.content.Context;
+import android.util.Log;
+
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.wealfur.ViewModel.ViewModel;
 
 public class UserInfo {
     private AppDatabase appDatabase;
+    private ViewModel viewModel;
 
     public UserInfo(Context context){
         appDatabase = AppDatabase.getInstance(context.getApplicationContext());
+        viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance((Application) context).create(ViewModel.class);
     }
 
-    private boolean checkIfEmailExists(String email){
-       int userId= appDatabase.userDAO().getAccountWithEmail(email);
-       if (userId == 0 ){
-           return false;
-       }
-       else {
-           return true;
-       }
-    }
+    /*
+     *
 
-    private boolean checkIfPasswordIsTheSame(String email, String password){
-        String pw = appDatabase.userDAO().getPasswordFromEmail(email);
-
-        return password.equals(pw);
-    }
-
-    private void createNewUser(String email, String password){
-        User user = new User();
-        user.email = email;
-        user.password = password;
-        appDatabase.userDAO().insertUser(user);
-    }
-
-    public void signInUser(String email, String password){
-        if (checkIfEmailExists(email)){
-            //the user already exists with this email
+    public void addNewUser(String email, String password, String passwordRepeated){
+        emailIsAlreadyUsed = false;
+        falseRepeatedPassword = false;
+        if (password.equals(passwordRepeated) && !viewModel.getIfAccountExistsWithEmail(email)){
+            User user = new User();
+            user.password = password;
+            user.email = email;
+            Log.d("EMAIL", email);
+            viewModel.insertNewUserInfo(user);
+            Log.d("VIEWMODEL", "success");
         }
-        else {
-            createNewUser(email, password);
+        else if (!password.equals(passwordRepeated)){
+            falseRepeatedPassword = true;
         }
-    }
+        else if(viewModel.getIfAccountExistsWithEmail(email)){
+            emailIsAlreadyUsed = true;
+        }
 
-    public void checkForUserCredentials(String email, String password){
-        if (checkIfEmailExists(email)){
-            if (checkIfPasswordIsTheSame(email, password)){
-                //LogIn
-            }
-            else {
-                //Wrong password
-            }
-        }
-        else {
-            //The user doesnt exist
-        }
     }
+*/
+
 }

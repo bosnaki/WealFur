@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/backgroundMain"
-    tools:context=".SignUpActivity">
+    tools:context=".activities.SignUpActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -36,12 +36,13 @@
         android:id="@+id/passwordEditText"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:autofillHints="password"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailAddressEditText" />
 
@@ -49,26 +50,51 @@
         android:id="@+id/passwordRepeatEditText"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:autofillHints="password"
         android:ems="10"
         android:hint="@string/repeat_password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
     <Button
         android:id="@+id/signUpButton"
-        android:onClick="saveNewUserEmailAndPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/purple"
+        android:onClick="saveNewUserEmailAndPassword"
         android:text="@string/sign_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordRepeatEditText">
 
     </Button>
+
+    <TextView
+        android:id="@+id/email_already_used"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:visibility="invisible"
+        android:text="This email is already used in another account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailAddressEditText" />
+
+    <TextView
+        android:id="@+id/falseRepeatedPasswordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/red"
+        android:text="Passwords don't match"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordRepeatEditText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

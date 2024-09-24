@@ -34,7 +34,14 @@ android {
 dependencies {
     val roomVersion = "2.6.1"
     val fragment_version = "1.8.3"
+    val lifecycle_version = "2.2.0"
 
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version")
+
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata:$lifecycle_version")
+    
     //ROOM
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor ("androidx.room:room-compiler:$roomVersion")

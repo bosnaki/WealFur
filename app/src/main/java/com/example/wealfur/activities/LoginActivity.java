@@ -1,4 +1,4 @@
-package com.example.wealfur;
+package com.example.wealfur.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,15 +6,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 
-import java.util.Objects;
+import com.example.wealfur.AppDatabase;
+import com.example.wealfur.R;
 
 public class LoginActivity extends AppCompatActivity {
 

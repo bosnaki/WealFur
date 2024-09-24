@@ -13,7 +13,7 @@
         android:theme="@style/Theme.WealFur"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,10 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
 
         </activity>
-        <activity android:name=".SignUpActivity">
+        <activity android:name=".activities.SignUpActivity">
 
         </activity>
     </application>

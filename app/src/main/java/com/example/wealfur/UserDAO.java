@@ -1,5 +1,6 @@
 package com.example.wealfur;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -29,6 +30,9 @@ public interface UserDAO {
     @Query("SELECT password from User where email like :email")
     String getPasswordFromEmail(String email);
 
+    @Query("SELECT * from USER where email like :email LIMIT 1")
+    User getUserFromEmail(String email);
+    // LiveData<User> getUserFromEmail(String email);
 
 
 }
